@@ -1,0 +1,7 @@
+fastapi==0.111.0
+poetry==1.8.3
+pylint==3.1.0
+mypy==1.10.0
+isort==5.13.2
+pydantic==2.7.1
+allure-pytest==2.13.5
