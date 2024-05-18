@@ -1,0 +1,12 @@
+version 0.2.0
++ added logger
++ added loguru to requirements
++ added version.txt file
+
+version 0.1.0
++ added api endpoints
++ added dto models
++ added project requirements
++ added configs for mypy and pylint
++ added normal tests of endpoint (to be asynced)
++ added todo on create logger and bd
