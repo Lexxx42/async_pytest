@@ -1,4 +1,5 @@
-""" Logging module of a project. """
+"""Logging module of a project."""
+
 import sys
 
 from loguru import logger

@@ -1,0 +1,13 @@
+repos:
+- repo: local
+  hooks:
+    - id: ruff
+      name: run ruff
+      entry: ruff check
+      language: python
+      types: [ python, pyi ]
+      args: [ --fix ]
+    - id: isort
+      name: run isort
+      entry: isort
+      language: system

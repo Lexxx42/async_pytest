@@ -1,3 +1,4 @@
+"""Endpoints."""
 from typing import Annotated
 
 from fastapi import FastAPI, Header, HTTPException
@@ -11,7 +12,7 @@ app = FastAPI()
 
 @app.get(path="/api/users/{user_id}", response_model=single_user.GetSingleUserDto)
 async def get_single_user(user_id: int, x_token: Annotated[str, Header()]):
-    """ Get single user data.
+    """Get single user data.
 
     Args:
         user_id: user ID.

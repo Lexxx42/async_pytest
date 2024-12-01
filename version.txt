@@ -1,3 +1,8 @@
+version 0.2.1
++ added ruff
++ added pre-commit
++ added pre-commit hooks to isort and ruff
+
 version 0.2.0
 + added logger
 + added loguru to requirements
@@ -9,4 +14,4 @@ version 0.1.0
 + added project requirements
 + added configs for mypy and pylint
 + added normal tests of endpoint (to be asynced)
-+ added todo on create logger and bd
++ added to do on create logger and bd
