@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from application.endpoints import app
+from application import app
 from dto.error_dto import ErrorDto
 from dto.get_single_user_dto import GetSingleUserDto
 

@@ -6,4 +6,4 @@ from pydantic import BaseModel, ConfigDict
 class ReqResDto(BaseModel):
     """Base class for Reqres schemas."""
 
-    model_config = ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="forbid", from_attributes=True)

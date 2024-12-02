@@ -5,7 +5,7 @@ from pydantic import EmailStr, StrictInt, StrictStr
 from dto.generic import ReqResDto
 
 
-class Data(ReqResDto):
+class UserData(ReqResDto):
     """User info."""
 
     id: StrictInt
@@ -15,15 +15,7 @@ class Data(ReqResDto):
     avatar: StrictStr
 
 
-class Support(ReqResDto):
-    """Supporting info."""
-
-    url: StrictStr
-    text: StrictStr
-
-
 class GetSingleUserDto(ReqResDto):
     """Dto model for get single user data request."""
 
-    data: Data
-    support: Support
+    data: UserData

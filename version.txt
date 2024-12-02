@@ -1,3 +1,9 @@
+version 0.3.0
++ added psycopg2
++ added sqlmodel
++ added python-dotenv
++ now using bd instead of python module
+
 version 0.2.1
 + added ruff
 + added pre-commit

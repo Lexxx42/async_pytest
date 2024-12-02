@@ -8,3 +8,6 @@ allure-pytest==2.13.5
 loguru==0.7.2
 pre_commit==4.0.1
 ruff==0.8.1
+sqlmodel==0.0.22
+python-dotenv==1.0.1
+psycopg2-binary==2.9.10
