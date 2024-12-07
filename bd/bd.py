@@ -1,8 +1,10 @@
 """Database."""
 
-from typing import Annotated
+from typing import Annotated, AsyncGenerator
 
 from fastapi import Depends
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from sqlalchemy.orm import sessionmaker
 from sqlmodel import Session, SQLModel, create_engine
 
 from utility.secret_reader import get_bd_credentials
@@ -14,17 +16,21 @@ host = bd_creds["host"]
 port = bd_creds["port"]
 name = bd_creds["name"]
 
-engine = create_engine(url=f"postgresql+psycopg2://{user}:{passwd}@{host}:{port}/{name}", echo=True)
+engine = create_async_engine(url=f"postgresql+asyncpg://{user}:{passwd}@{host}:{port}/{name}", echo=True, future=True)
 
 
-def create_db_and_tables():
+async def create_db_and_tables():
     """BD initialization."""
-    SQLModel.metadata.create_all(engine)
+    async with engine.begin() as conn:
+        # await conn.run_sync(SQLModel.metadata.drop_all)
+        await conn.run_sync(SQLModel.metadata.create_all)
 
 
-def get_session():
+async def get_session() -> AsyncGenerator[AsyncSession, None]:
     """Session initialization."""
-    with Session(engine) as session:
+    async_session = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
+
+    async with async_session() as session:
         yield session
 
 

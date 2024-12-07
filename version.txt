@@ -1,3 +1,8 @@
+version 0.3.1
+- remove psycopg2
+- remove psycopg2-binary
++ added asyncpg
+
 version 0.3.0
 + added psycopg2
 + added sqlmodel

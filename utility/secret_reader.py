@@ -8,7 +8,7 @@ from dotenv import find_dotenv, load_dotenv
 load_dotenv(find_dotenv())
 MayBeSte = str | None
 BdCreds = TypedDict(
-    "BdCreds", {"user": MayBeSte, "pass": MayBeSte, "host": MayBeSte, "port": MayBeSte, "name": MayBeSte}
+    "BdCreds", {"user": MayBeSte, "pass": MayBeSte, "host": MayBeSte, "port": MayBeSte, "name": MayBeSte},
 )
 
 

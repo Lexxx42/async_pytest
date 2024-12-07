@@ -13,7 +13,8 @@ FAKE_SECRET_TOKEN = "sun_of_the_beach"
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    create_db_and_tables()
+    """Lifespan."""
+    await create_db_and_tables()
     yield
 
 
@@ -21,7 +22,7 @@ app = FastAPI(lifespan=lifespan)
 
 
 @app.get(path="/api/users/{user_id}", response_model=GetSingleUserDto)
-async def get_single_user(user_id: int, x_token: Annotated[str, Header()], session: SessionDep):
+async def get_single_user(user_id: int, x_token: Annotated[str, Header()], session: SessionDep) -> GetSingleUserDto:
     """Get single user data.
 
     Args:
@@ -32,7 +33,7 @@ async def get_single_user(user_id: int, x_token: Annotated[str, Header()], sessi
     if x_token != FAKE_SECRET_TOKEN:
         raise HTTPException(status_code=400, detail="Invalid X-Token header")
 
-    user = session.get(Data, user_id)
+    user = await session.get(Data, user_id)
 
     if not user:
         raise HTTPException(status_code=404, detail=f"User with {user_id=} not found")

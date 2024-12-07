@@ -1,6 +1,6 @@
 # async_pytest
 
-## For DB connection dotenv lib used
+## For DB connection
 
 1. Create DB: [PostgreSQL](https://www.postgresql.org/download/)
 2. Fill table with data (will be migration script later)
