@@ -1,6 +1,6 @@
 """Index file for package. Contains public interface."""
 
-__all__ = ["get_session", "create_db_and_tables", "Data", "SessionDep"]
+__all__ = ["get_session", "Data", "SessionDep", "DB_URL"]
 
-from bd.bd import SessionDep, create_db_and_tables, get_session
+from bd.bd import SessionDep, get_session, DB_URL
 from bd.models import Data

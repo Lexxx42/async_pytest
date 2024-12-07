@@ -5,7 +5,7 @@ from typing import Annotated, AsyncGenerator
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
-from sqlmodel import Session, SQLModel, create_engine
+from sqlmodel import Session
 
 from utility.secret_reader import get_bd_credentials
 
@@ -16,14 +16,9 @@ host = bd_creds["host"]
 port = bd_creds["port"]
 name = bd_creds["name"]
 
-engine = create_async_engine(url=f"postgresql+asyncpg://{user}:{passwd}@{host}:{port}/{name}", echo=True, future=True)
+DB_URL = f"postgresql+asyncpg://{user}:{passwd}@{host}:{port}/{name}"
 
-
-async def create_db_and_tables():
-    """BD initialization."""
-    async with engine.begin() as conn:
-        # await conn.run_sync(SQLModel.metadata.drop_all)
-        await conn.run_sync(SQLModel.metadata.create_all)
+engine = create_async_engine(url=DB_URL, echo=True, future=True)
 
 
 async def get_session() -> AsyncGenerator[AsyncSession, None]:
