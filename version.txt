@@ -1,3 +1,8 @@
+version 0.4.0
++ added mimesis
++ added random data generation module
++ update README.md
+
 version 0.3.2
 + added alembic
 + started work on migration script

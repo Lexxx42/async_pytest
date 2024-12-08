@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "async-pytest"
-version = "0.3.2"
+version = "0.4.0"
 description = "fast api project + testing"
 authors = ["Konyukhov Alexander <jesusmisha@gmail.com>"]
 readme = "README.md"
@@ -113,6 +113,7 @@ pre-commit = "^4.0.1"
 python-dotenv = "^1.0.1"
 alembic = "^1.14.0"
 sqlalchemy = "^2.0.36"
+mimesis = "^18.0.0"
 
 [tool.poetry.group.validation.dependencies]
 pydantic = "^2.7.1"
