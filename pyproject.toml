@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "async-pytest"
-version = "0.4.0"
-description = "fast api project + testing"
+version = "0.4.1"
+description = "fastapi project + testing"
 authors = ["Konyukhov Alexander <jesusmisha@gmail.com>"]
 readme = "README.md"
 

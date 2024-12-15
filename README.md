@@ -37,6 +37,27 @@ You can drop table after
 alembic downgrade base
 ```
 
+## Run application locally
+
+```shell
+fastapi dev application/endpoints.py
+```
+
+U`ll see output like this with clickable URLs:
+```
+ ╭────────── FastAPI CLI - Development mode ───────────╮
+ │                                                     │
+ │  Serving at: http://127.0.0.1:8000                  │
+ │                                                     │
+ │  API docs: http://127.0.0.1:8000/docs               │
+ │                                                     │
+ │  Running in development mode, for production use:   │
+ │                                                     │
+ │  fastapi run                                        │
+ │                                                     │
+ ╰─────────────────────────────────────────────────────╯
+```
+
 ## Run tests in `/test` dir
 
 ## To Do

@@ -2,7 +2,7 @@
 
 from typing import Self
 
-from pydantic import EmailStr, StrictStr
+from pydantic import EmailStr, Field, StrictStr
 
 from dto.generic import ReqResDto
 from randoms.data_generator import get_random_avatar_url, get_random_email, get_random_fullname
@@ -11,10 +11,10 @@ from randoms.data_generator import get_random_avatar_url, get_random_email, get_
 class SingleUserDataDto(ReqResDto):
     """User info for creation."""
 
-    email: EmailStr
-    first_name: StrictStr
-    last_name: StrictStr
-    avatar: StrictStr
+    email: EmailStr = Field(description="Email")
+    first_name: StrictStr = Field(description="First name")
+    last_name: StrictStr = Field(description="Last name")
+    avatar: StrictStr = Field(description="Avatar url")
 
     @classmethod
     def create_random(cls) -> Self:
@@ -35,4 +35,4 @@ class SingleUserDataDto(ReqResDto):
         Args:
             count: count of users.
         """
-        return [cls.create_random().model_dump(mode='json') for _ in range(count)]
+        return [cls.create_random().model_dump(mode="json") for _ in range(count)]
