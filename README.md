@@ -25,6 +25,8 @@ BD_PORT=HOST_PORT
 BD_NAME=NAME_OF_BD
 ```
 
+## Step 5 automated with app startup
+
 5. Run migration script for data population (table creation and data filling)
 
 ```shell
@@ -40,7 +42,7 @@ alembic downgrade base
 ## Run application locally
 
 ```shell
-fastapi dev application/endpoints.py
+fastapi dev application/users.py
 ```
 
 U`ll see output like this with clickable URLs:
@@ -62,6 +64,6 @@ U`ll see output like this with clickable URLs:
 
 ## To Do
 1. add endpoints for inserting/deleting users from DB
-2. add API docs
-3. async tests
+2. ~~add API docs~~
+3. async tests with pytest
 4. check all setup ways via requirements and poetry 

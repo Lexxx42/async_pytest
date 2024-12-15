@@ -1,4 +1,4 @@
-"""DTO schema of GET /api/users/{user_id} request."""
+"""DTO schema of GET /routers/users/{user_id} request."""
 
 from pydantic import EmailStr, Field, StrictInt, StrictStr
 

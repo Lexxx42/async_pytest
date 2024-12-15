@@ -1,3 +1,8 @@
+version 0.4.2
++ added migration script before and after app startup
++ added "users" router to the app
++ update README.md
+
 version 0.4.1
 + added error handles
 + added custom description for docs
