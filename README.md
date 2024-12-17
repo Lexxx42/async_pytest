@@ -42,7 +42,7 @@ alembic downgrade base
 ## Run application locally
 
 ```shell
-fastapi dev application/users.py
+fastapi dev application/application.py
 ```
 
 U`ll see output like this with clickable URLs:
@@ -64,6 +64,6 @@ U`ll see output like this with clickable URLs:
 
 ## To Do
 1. add endpoints for inserting/deleting users from DB
-2. ~~add API docs~~
+2. ~~add API docs~~ done in v0.4.2 (descriptions to DTO)
 3. async tests with pytest
 4. check all setup ways via requirements and poetry 

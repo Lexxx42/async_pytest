@@ -13,6 +13,18 @@ class InvalidTokenError(Exception):
         self.name = name
 
 
+class ServerError(Exception):
+    """Server got unexpected exception."""
+
+    def __init__(self, name: str):
+        """Constructor.
+
+        Args:
+            name: what happened.
+        """
+        self.name = name
+
+
 class NotFoundError(Exception):
     """Not found exception."""
 

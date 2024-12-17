@@ -7,8 +7,7 @@ from typing import Any
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 
-from application.exc_handlers import invalid_token_exception_handler, not_found_exception_handler
-from application.exceptions import InvalidTokenError, NotFoundError
+from application import exc_handlers, exceptions
 from application.routers import user_router
 
 
@@ -22,8 +21,9 @@ async def lifespan(app: FastAPI):  # noqa: ARG001
 
 app = FastAPI(lifespan=lifespan)
 app.include_router(user_router)
-app.add_exception_handler(InvalidTokenError, invalid_token_exception_handler)  # type: ignore
-app.add_exception_handler(NotFoundError, not_found_exception_handler)  # type: ignore
+app.add_exception_handler(exceptions.InvalidTokenError, exc_handlers.invalid_token_exception_handler)  # type: ignore
+app.add_exception_handler(exceptions.NotFoundError, exc_handlers.not_found_exception_handler)  # type: ignore
+app.add_exception_handler(exceptions.ServerError, exc_handlers.server_exception_handler)  # type: ignore
 
 
 def custom_openapi() -> dict[str, Any]:
@@ -33,7 +33,7 @@ def custom_openapi() -> dict[str, Any]:
 
     openapi_schema = get_openapi(
         title="async-pytest",
-        version="0.4.2",
+        version="0.4.3",
         summary="OpenAPI schema",
         description="Here's a longer description of the custom **OpenAPI** schema",
         routes=app.routes,

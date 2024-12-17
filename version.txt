@@ -1,3 +1,9 @@
+version 0.4.3
++ added POST endpoint
++ added exceptions and handlers for them
++ added tests for endpoint
++ update README.md
+
 version 0.4.2
 + added migration script before and after app startup
 + added "users" router to the app

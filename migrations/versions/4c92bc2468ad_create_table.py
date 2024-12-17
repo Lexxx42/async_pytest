@@ -31,7 +31,8 @@ def upgrade() -> None:
     )
 
     op.bulk_insert(
-        table=table, rows=SingleUserDataDto.get_count_users(count=10)
+        table=table,
+        rows=SingleUserDataDto.get_count_users(count=10),
     )
 
 
